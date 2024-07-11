@@ -11,7 +11,7 @@ using QuizApp.Data.Context;
 namespace QuizApp.Migrations
 {
     [DbContext(typeof(QuizDbContext))]
-    [Migration("20240708060024_quiz")]
+    [Migration("20240709115212_quiz")]
     partial class quiz
     {
         /// <inheritdoc />
@@ -26,11 +26,11 @@ namespace QuizApp.Migrations
 
             modelBuilder.Entity("QuizApp.Data.Participant", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ParticipantId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ParticipantId"));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -46,7 +46,7 @@ namespace QuizApp.Migrations
                     b.Property<int>("TimeTaken")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ParticipantId");
 
                     b.ToTable("Participants");
                 });

@@ -37,7 +37,7 @@ namespace QuizApp.Controllers
             return Ok(randomq);
         }
         #endregion
-
+        #region
         [HttpGet("{id}")]
         public async Task<ActionResult<Question>> GetQuestionById(int id)
         {
@@ -49,6 +49,7 @@ namespace QuizApp.Controllers
             }
             return qestion;
         }
+        #endregion
         #region
         [HttpPost]
         public async Task<ActionResult<Question>> PostQuestion(Question question)
@@ -65,6 +66,7 @@ namespace QuizApp.Controllers
             return Ok(question);
         }
         #endregion
+        #region
         [HttpPut("{id}")]
         public async Task<IActionResult> PutQuestion(int id,Question question)
         {
@@ -91,6 +93,8 @@ namespace QuizApp.Controllers
             }
             return NoContent();
         }
+        #endregion
+        #region
         [HttpPost]
         [Route("GetAnswer")]
         public async Task<ActionResult<Question>> ReteriveAnswer(int[] qnsId)
@@ -106,6 +110,8 @@ namespace QuizApp.Controllers
                 }).ToListAsync());
                 return Ok(answer);
         }
+        #endregion
+        #region
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteQuestion(int id)
         {
@@ -119,9 +125,12 @@ namespace QuizApp.Controllers
 
             return NoContent();
         }
+        #endregion
+        #region
         private bool QuestionExists(int id)
         {
             return _context.Questions.Any(q=>q.QsId==id);
         }
+        #endregion
     }
 }

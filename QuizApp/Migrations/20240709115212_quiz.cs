@@ -14,7 +14,7 @@ namespace QuizApp.Migrations
                 name: "Participants",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    ParticipantId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Email = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", nullable: false),
@@ -23,7 +23,7 @@ namespace QuizApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Participants", x => x.Id);
+                    table.PrimaryKey("PK_Participants", x => x.ParticipantId);
                 });
 
             migrationBuilder.CreateTable(
